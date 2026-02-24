@@ -1,0 +1,49 @@
+[project]
+name = "slidesmith-mcp"
+version = "1.0.0"
+description = "AI-powered presentation creation for any MCP-compatible agent. Create professional PowerPoint and PDF presentations from simple descriptions."
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+
+keywords = ["mcp", "presentation", "powerpoint", "pdf", "slides", "ai", "claude", "cursor", "windsurf", "productivity", "automation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Presentation",
+    "Topic :: Productivity",
+]
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "python-pptx>=0.6.23",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "pillow>=10.0.0",
+    "pydantic>=2.0.0",
+    "html2image>=2.0.0",
+    "playwright>=1.40.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+
+[project.scripts]
+slidesmith = "src.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
